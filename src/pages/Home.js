@@ -70,7 +70,7 @@ const Home = () => {
             <TrackVisibility>
               {({ isVisible }) =>
               <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
-                <h1>{`Hello, Class! Welcome to`}</h1>
+                <h1>{`Welcome to a new area of`}</h1>
                 <h1>
                   <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "Virtual Learning", "Instant Support", "Having Fun" ]'>
                     <span className="wrap">{text}</span>
@@ -91,7 +91,7 @@ const Home = () => {
               <button class="button-64" role="button"><span class="text">I am a Student</span></button>
             </Link>
           
-            <Link to="/teacher" style={{ textDecoration: 'none' }}>
+            <Link to="/joinmeeting" style={{ textDecoration: 'none' }}>
               <button class="button-64" role="button"><span class="text">I am a Teacher</span></button>
             </Link>
           </Box>

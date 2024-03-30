@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Card } from "@mui/material";
+import { Grid, Card, Box } from "@mui/material";
 import Chat from '../components/Chat';
 import backgroundImage from "../assets/banner-bg.png";
 

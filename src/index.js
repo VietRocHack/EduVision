@@ -8,8 +8,10 @@ import { BrowserRouter } from 'react-router-dom';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#EDF5E1',
+      main: '#27125A',
       dark: '#05386B',
+      light: '#A8DADC', // Additional light shade
+      contrastText: '#000000',
     },
     spacing: [0, 4, 8, 16, 32, 64],
   },
