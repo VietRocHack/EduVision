@@ -1,6 +1,5 @@
 from flask import Flask,request
-from os import path
-import json, os, time
+import json, os
 from openai import OpenAI
 from dotenv import load_dotenv
 
