@@ -42,6 +42,11 @@ const Timer = styled.div`
   font-size: 18px;
 `;
 
+const AnswerButton = styled.button`
+  background-color: ${({ answeredCorrectly, correct }) =>
+    answeredCorrectly ? (correct ? "green" : "red") : "inherit"};
+`;
+
 const Quiz = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [timer, setTimer] = useState(10);
@@ -49,12 +54,14 @@ const Quiz = () => {
   const [quiz, setQuiz] = useState({});
   const [loading, setLoading] = useState(false);
   const [answeredCorrectly, setAnsweredCorrectly] = useState(false);
+  const [answeredWrong, setAnsweredWrong] = useState(false)
 
   const toggleQuiz = () => {
     setIsOpen(!isOpen);
     setTimer(10);
     setTimeUp(false);
     setAnsweredCorrectly(false);
+    setAnsweredWrong(false);
     if (!isOpen) {
       handleQuiz();
     }
@@ -74,10 +81,13 @@ const Quiz = () => {
           action: "get_quiz",
           timestamp: Date.now() / 1000,
         });
-        const response = await fetch("http://10.65.74.230:5001/create_quiz", {
-          method: "POST",
-          body: json_data,
-        });
+        const response = await fetch(
+          "https://9c4a-192-31-236-2.ngrok-free.app/create_quiz",
+          {
+            method: "POST",
+            body: json_data,
+          }
+        );
         if (response.ok) {
           const res = await response.json();
           const { response: answer } = res;
@@ -94,12 +104,13 @@ const Quiz = () => {
   };
 
   const checkAns = (selectedChoice) => {
-    console.log(selectedChoice, quiz.correctAns)
+    console.log(selectedChoice, quiz.correctAns);
     if (selectedChoice === quiz.correctAns.charAt(0)) {
       setAnsweredCorrectly(true);
       console.log("That's right");
     } else {
-      setAnsweredCorrectly(false);
+      setAnsweredWrong(true);
+      setAnsweredCorrectly(true)
       console.log("Wrong!");
     }
     setTimer(0);
@@ -159,35 +170,29 @@ const Quiz = () => {
                 ) : (
                   <Timer>{formatTime(timer)}</Timer>
                 )}
-                {
-                  answeredCorrectly && <div style={{ color: 'green' }}>That's a correct answer!!!</div>
-                }
+                {/* {answeredCorrectly && (
+                  <div style={{ color: "green" }}>
+                    That's a correct answer!!!
+                  </div>
+                )} */}
+                {answeredWrong && (
+                  <div style={{ color: "red" }}>
+                    Wrong!!!
+                  </div>
+                )}
               </div>
               <div className="answer-section">
-                <button
-                  onClick={() => checkAns(quiz.choices[0].charAt(0))}
-                  disabled={timeUp || answeredCorrectly}
-                >
-                  {quiz.choices[0]}
-                </button>
-                <button
-                  onClick={() => checkAns(quiz.choices[1].charAt(0))}
-                  disabled={timeUp || answeredCorrectly}
-                >
-                  {quiz.choices[1]}
-                </button>
-                <button
-                  onClick={() => checkAns(quiz.choices[2].charAt(0))}
-                  disabled={timeUp || answeredCorrectly}
-                >
-                  {quiz.choices[2]}
-                </button>
-                <button
-                  onClick={() => checkAns(quiz.choices[3].charAt(0))}
-                  disabled={timeUp || answeredCorrectly}
-                >
-                  {quiz.choices[3]}
-                </button>
+                {quiz.choices.map((choice, index) => (
+                  <AnswerButton
+                    key={index}
+                    onClick={() => checkAns(choice.charAt(0))}
+                    disabled={timeUp || answeredCorrectly}
+                    answeredCorrectly={answeredCorrectly}
+                    correct={choice.charAt(0) === quiz.correctAns.charAt(0)}
+                  >
+                    {choice}
+                  </AnswerButton>
+                ))}
               </div>
             </div>
           </ModalContent>

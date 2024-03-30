@@ -1,4 +1,4 @@
-from flask import Flask,request
+from flask import Flask
 import json, os
 from openai import OpenAI
 from dotenv import load_dotenv
