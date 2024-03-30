@@ -41,6 +41,6 @@ border: 5px solid #234668;
 cursor: pointer;
 }
 
-button:hover {
-background-color: #555e7d;
-}
+button:hover:not(:disabled) {
+    background-color: #555e7d;
+  }
