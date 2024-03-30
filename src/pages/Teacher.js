@@ -80,19 +80,19 @@ const Teacher = () => {
           </Paper>
           <Paper sx={{ marginBottom: 3, height: "15vh", display: "flex", justifyContent: "space-between", alignContent: "center", padding: "10px"}} elevation={3}>
             <Typography>Question</Typography>
-            <Button variant="contained" sx={{width: "15%"}}>Quizzing</Button>
+            <Button variant="contained" sx={{width: "15%", color: "white"}}>Quizzing</Button>
           </Paper>
           <Paper sx={{ marginBottom: 3, height: "15vh", display: "flex", justifyContent: "space-between", alignContent: "center", padding: "10px"}} elevation={3}>
             <Typography>Question</Typography>
-            <Button variant="contained" sx={{width: "15%"}}>Quizzing</Button>
+            <Button variant="contained" sx={{width: "15%", color: "white"}}>Quizzing</Button>
           </Paper>
           <Paper sx={{ marginBottom: 3, height: "15vh", display: "flex", justifyContent: "space-between", alignContent: "center", padding: "10px"}} elevation={3}>
             <Typography>Question</Typography>
-            <Button variant="contained" sx={{width: "15%"}}>Quizzing</Button>
+            <Button variant="contained" sx={{width: "15%", color: "white"}}>Quizzing</Button>
           </Paper>
           <Paper sx={{ marginBottom: 3, height: "15vh", display: "flex", justifyContent: "space-between", alignContent: "center", padding: "10px"}} elevation={3}>
             <Typography>Question</Typography>
-            <Button variant="contained" sx={{width: "15%"}}>Quizzing</Button>
+            <Button variant="contained" sx={{width: "15%", color: "white"}}>Quizzing</Button>
           </Paper>
         </Stack>
       </Card>

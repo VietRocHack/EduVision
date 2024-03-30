@@ -4,11 +4,9 @@ import { Link } from "react-router-dom";
 import backgroundImage from "../assets/banner-bg.png";
 import header from "../assets/header-img.svg";
 
-const CreateMeeting = () => {
+const JoinMeeting = () => {
   return (
     <Box sx={{display: "flex", flexDirection: "row", justifyContent: "space-around" , backgroundImage: `url(${backgroundImage})`}}>
-    {/* <Box sx={{backgroundImage: `url(${leftImage})`, backgroundRepeat: "no-repeat", width: "40%", animation: "updown 3s linear infinite"}}></Box> */}
-    
     
     <Box 
         display="flex" 
@@ -33,7 +31,7 @@ const CreateMeeting = () => {
                 
             }}
         >
-        <Box sx={{marginBottom: "20px", display: "flex", justifyContent:"space-between"}} >      
+        <Box sx={{marginBottom: "20px", display: "flex", justifyContent:"space-around"}} >      
             <TextField 
                 required
                 label="Name" 
@@ -42,32 +40,23 @@ const CreateMeeting = () => {
             <TextField
                 required
                 id="outlined-password-input"
-                label="Professor ID"
+                label="Student ID"
                 type="password"
                 autoComplete="current-password"
             />
         </Box>
-        <Box sx={{marginBottom: "20px", display: "flex", justifyContent:"space-between"}}>
+        <Box sx={{marginBottom: "20px", display: "flex", justifyContent:"space-around"}}>
             <TextField 
                 required
-                label="Class Capacity" 
+                label="Meeting ID" 
                 sx={{ mr: 2 }}
-            />
-            <TextField
-            id="date"
-            label="Date"
-            type="date"
-            defaultValue=""
-            InputLabelProps={{
-                shrink: true,
-            }}
             />
         </Box>  
       
         </Paper>
 
-        <Link to="/teacher" style={{ textDecoration: 'none' }}>
-            <button class="button-64" role="button"><span class="text">Generate Meeting</span></button>
+        <Link to="/student" style={{ textDecoration: 'none' }}>
+            <button class="button-64" role="button"><span class="text">Join Meeting</span></button>
         </Link>
     </Box>
 
@@ -76,5 +65,5 @@ const CreateMeeting = () => {
   );
 };
 
-export default CreateMeeting;
+export default JoinMeeting;
 

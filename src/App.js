@@ -6,6 +6,7 @@ import { Routes, Route } from "react-router-dom";
 import ChatBot from "./components/Chat.js";
 import Quiz from "./components/Quiz.js";
 import CreateMeeting from "./pages/CreateMeeting.js";
+import JoinMeeting from "./pages/JoinMeeting.js";
 
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
       <Route path="/teacher" element={<Teacher />}/>
       <Route path="/chatbot" element={<ChatBot />}/>
       <Route path="/quiz" element={<Quiz/>}/>
-      <Route path="/joinmeeting" element={<CreateMeeting/>}/>
+      <Route path="/createmeeting" element={<CreateMeeting/>}/>
+      <Route path="/joinmeeting" element={<JoinMeeting/>}/>
     </Routes>
 
   );

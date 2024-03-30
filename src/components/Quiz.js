@@ -5,7 +5,7 @@ import "./Quiz.css";
 const QuizContainer = styled.div`
   position: fixed;
   bottom: 20px;
-  right: 20px;
+  right: 100px;
   width: 60px;
   height: 60px;
   border-radius: 50%;
