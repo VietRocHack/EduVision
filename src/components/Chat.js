@@ -98,7 +98,7 @@ const Chat = () => {
       <ChatbotContainer onClick={toggleChatbot}>
         <ChatbotIcon>💬</ChatbotIcon>
       </ChatbotContainer>
-      {isOpen && <ChatBot steps={info} opened={isOpen} style={{ width: "93%", height: "80vh" }} />}
+      {isOpen && <ChatBot steps={info} opened={isOpen} style={{ width: "100%", height: "100%" }} />}
     </ThemeProvider>
     
   );
