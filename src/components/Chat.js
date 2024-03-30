@@ -51,7 +51,7 @@ const Chat = () => {
           action: "get-answer",
           timestamp: Date.now() / 1000,
         });
-        const response = await fetch("http://127.0.0.1:5000/find_answer", {
+        const response = await fetch("http://10.65.74.230:5000/find_answer", {
           method: "POST",
           body: json_data,
         });

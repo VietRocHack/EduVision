@@ -74,7 +74,7 @@ const Quiz = () => {
           action: "get_quiz",
           timestamp: Date.now() / 1000,
         });
-        const response = await fetch("http://127.0.0.1:5000/create_quiz", {
+        const response = await fetch("http://10.65.74.230:5001/create_quiz", {
           method: "POST",
           body: json_data,
         });
