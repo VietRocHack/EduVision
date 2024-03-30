@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Box, TextField, Grid, Paper } from '@mui/material';
+import { Button, Box, TextField, Grid, Paper, Typography } from '@mui/material';
 import { Link } from "react-router-dom";
 import backgroundImage from "../assets/banner-bg.png";
 import header from "../assets/header-img.svg";
@@ -25,34 +25,34 @@ const JoinMeeting = () => {
                 height: "300px", 
                 padding: "20px", 
                 marginBottom: "50px", 
-                backgroundColor: "#D09DEB",
+                backgroundColor: "#E8D9F0",
                 justifyContent: "center",
                 alignItems: "center",
                 
             }}
         >
-        <Box sx={{marginBottom: "20px", display: "flex", justifyContent:"space-around"}} >      
-            <TextField 
-                required
-                label="Name" 
-                sx={{ mr: 2 }}
-            />
-            <TextField
-                required
-                id="outlined-password-input"
-                label="Student ID"
-                type="password"
-                autoComplete="current-password"
-            />
-        </Box>
-        <Box sx={{marginBottom: "20px", display: "flex", justifyContent:"space-around"}}>
-            <TextField 
-                required
-                label="Meeting ID" 
-                sx={{ mr: 2 }}
-            />
-        </Box>  
-      
+            <Typography mb={3} variant="h3" sx={{display: "flex", justifyContent: "center", color: "primary.main"}}>Meeting Information</Typography>
+            <Box sx={{marginBottom: "40px", display: "flex", justifyContent:"space-around"}} >      
+                <TextField 
+                    required
+                    label="Name" 
+                    sx={{ mr: 2 }}
+                />
+                <TextField
+                    required
+                    id="outlined-password-input"
+                    label="Student ID"
+                    type="password"
+                    autoComplete="current-password"
+                />
+            </Box>
+            <Box sx={{marginBottom: "20px", display: "flex", justifyContent:"space-around"}}>
+                <TextField 
+                    required
+                    label="Meeting ID" 
+                    sx={{ mr: 2 }}
+                />
+            </Box>  
         </Paper>
 
         <Link to="/student" style={{ textDecoration: 'none' }}>
