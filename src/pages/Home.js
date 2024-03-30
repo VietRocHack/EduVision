@@ -62,7 +62,7 @@ const Home = () => {
       }}>
         
         <Container sx={{width: "40%", padding: "60px", borderRadius: "30px", marginTop: "10%"}}>
-          <Typography variant="h1" color="secondary" gutterBottom sx={{fontFamily: 'Georgia, serif', animation: "leftright 5s linear infinite"}}>
+          <Typography variant="h1" color="secondary" gutterBottom sx={{fontFamily: 'Poppins, sans-serif', fontWeight: "500", animation: "leftright 5s linear infinite"}}>
             EduVision
           </Typography>
 
@@ -70,13 +70,13 @@ const Home = () => {
             <TrackVisibility>
               {({ isVisible }) =>
               <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
-                <h1>{`Welcome to a new area of`}</h1>
-                <h1>
+                <h1 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: "400" }}>{`Welcome to a new area of`}</h1>
+                <h2>
                   <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "Virtual Learning", "Instant Support", "Having Fun" ]'>
-                    <span className="wrap">{text}</span>
+                    <span className="wrap" style={{ fontFamily: 'Poppins, sans-serif', fontWeight: "500" }}>{text}</span>
                   </span>
-                </h1>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                </h2>
+                  <p style={{ fontFamily: 'Poppins, sans-serif', fontWeight: "300" }}>A website that boosts classroom interaction</p>
               </div>
               }
             </TrackVisibility>
@@ -88,11 +88,11 @@ const Home = () => {
             margin: "50px",
           }}>
             <Link to="/joinmeeting" style={{ textDecoration: 'none' }}>
-              <button class="button-64" role="button"><span class="text">I am a Student</span></button>
+              <button class="button-64" role="button"><span class="text" style={{ fontFamily: 'Poppins, sans-serif', fontWeight: "400" }}>I am a Student</span></button>
             </Link>
           
             <Link to="/createmeeting" style={{ textDecoration: 'none' }}>
-              <button class="button-64" role="button"><span class="text">I am a Teacher</span></button>
+              <button class="button-64" role="button"><span class="text" style={{ fontFamily: 'Poppins, sans-serif', fontWeight: "400" }}>I am a Teacher</span></button>
             </Link>
           </Box>
 
