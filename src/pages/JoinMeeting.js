@@ -1,10 +1,53 @@
-import React from 'react';
-import { Button, Box, TextField, Grid, Paper, Typography } from '@mui/material';
+import React, {useState} from 'react';
+import { Box, TextField, Paper, Typography } from '@mui/material';
 import { Link } from "react-router-dom";
 import backgroundImage from "../assets/banner-bg.png";
 import header from "../assets/header-img.svg";
+import { supabase } from '../App';
 
 const JoinMeeting = () => {
+    const [meetingID, setMeetingID] = useState('');
+    const [matchID, setMatchID] = useState(false)
+    const [meetingNotFound, setMeetingNotFound] = useState(false)
+
+    const handleMeetingIDChange = (event) => {
+        setMeetingID(event.target.value);
+        // console.log(meetingID)
+        setMatchID(false)
+        setMeetingNotFound(false)
+    };
+
+    const handleJoinMeeting = async () => {
+        try {
+          // Query Supabase for the meeting with the entered meeting ID
+          const { data, error } = await supabase
+            .from('meetings')
+            .select('*')
+            .eq('meeting_id', meetingID);
+          if (error) {
+            console.error('Error joining meeting:', error.message);
+            return;
+          }
+    
+          if (data.length === 0) {
+            console.error('Meeting not found.');
+            setMeetingNotFound(true)
+            return;
+          }
+    
+          console.log('Meeting details:', data[0]);
+          setMatchID(true)
+
+        } catch (error) {
+          console.error('Error joining meeting:', error.message);
+        }
+      };
+
+      const joinButton = matchID ? (
+        <Link to="/student" style={{ textDecoration: 'none' }}>
+            <button className="button-64" role="button" onClick={handleJoinMeeting}><span className="text">Join Meeting</span></button>
+        </Link>
+    ) : null;
   return (
     <Box sx={{display: "flex", flexDirection: "row", justifyContent: "space-around" , backgroundImage: `url(${backgroundImage})`}}>
     
@@ -50,14 +93,15 @@ const JoinMeeting = () => {
                 <TextField 
                     required
                     label="Meeting ID" 
+                    onChange={handleMeetingIDChange}
                     sx={{ mr: 2 }}
                 />
             </Box>  
         </Paper>
 
-        <Link to="/student" style={{ textDecoration: 'none' }}>
-            <button class="button-64" role="button"><span class="text">Join Meeting</span></button>
-        </Link>
+        <button onClick={handleJoinMeeting}>search</button>
+        {meetingNotFound && <div style={{ color: "red" }}>Meeting not found</div>}
+        {joinButton}
     </Box>
 
     <img src={header} alt="Your SVG"/>
