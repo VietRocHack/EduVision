@@ -156,7 +156,7 @@ const Quiz = () => {
       </QuizContainer>
       {loading ? (
         <>
-          <Typography
+          {/* <Typography
             style={{
               display: "flex",
               alignItems: "center",
@@ -170,8 +170,17 @@ const Quiz = () => {
               fontSize: "25px",
             }}
           >
-            Be Ready, 10 seconds count down!
-          </Typography>
+            <BlurBackground />
+            <div style={{backgroundColor: "white", padding: "25px", border: "1px solid black"}}>
+              Be Ready, 10 seconds count down!
+            </div>
+          </Typography> */}
+          <div style={{ position: "relative" }}>
+            <BlurBackground />
+            <div style={{ backgroundColor: "rgba(255, 255, 255, 0.8)", padding: "25px", border: "1px solid black", position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)", zIndex: "9999", color: "black", borderRadius: "10px" }}>
+              Be Ready, counting down till the question!
+            </div>
+          </div>
         </>
       ) : (
         isOpen && (
@@ -182,14 +191,9 @@ const Quiz = () => {
                 <div className="question">
                   <div style={{marginLeft: "20px"}}>
                   <div className="question-section">       
-                    <h2 style={{ marginBottom: "10px" }}>Quiz time!</h2>
+                    <h2 style={{ marginBottom: "10px", color: "black", fontSize: "40px" }}>Quiz time!</h2>
                     <div className="question-text">{quiz.question}</div>
     
-                    {/* {answeredCorrectly && (
-                      <div style={{ color: "green" }}>
-                        That's a correct answer!!!
-                      </div>
-                    )} */}
                     {answeredWrong && (
                       <div style={{ color: "red" }}>
                         Wrong!!!
@@ -210,9 +214,9 @@ const Quiz = () => {
                     ))}
                   </div>
                   {timeUp ? (
-                    <Timer style={{ marginLeft: "290px", marginBottom: "100px" }}>Time's up</Timer>
+                    <Timer style={{ marginLeft: "265px", marginBottom: "100px", color: "black", fontSize: "35px" }}>Time's up</Timer>
                   ) : (
-                    <Timer style={{ marginLeft: "290px", marginBottom: "100px" }}>{formatTime(timer)}</Timer>
+                    <Timer style={{ marginLeft: "265px", marginBottom: "100px", color: "black", fontSize: "35px" }}>{formatTime(timer)}</Timer>
                   )}
                   </div>
                 </div>
