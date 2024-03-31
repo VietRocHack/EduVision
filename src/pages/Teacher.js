@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, Grid, Button, Stack } from "@mui/material";
+import { Typography, Grid, Button, Stack, Container } from "@mui/material";
 import Paper from '@mui/material/Paper';
 import Card from '@mui/material/Card';
 import backgroundImage from "../assets/banner-bg.png";
@@ -22,25 +22,22 @@ const Teacher = () => {
         <Stack direction="column" spacing={2} sx={{padding: "20px"}}>
           
           <Paper sx={{ marginBottom: 2, height: "20vh", padding: "10px", display: "flex", flexDirection: "column", fontFamily: 'Poppins, sans-serif', fontWeight: "500"}} elevation={3}>
-            <Card elevation={6} sx={{marginBottom: "20px"}}>
-              <Typography variant="h5" color="secondary" sx={{textAlign: "center"}}>CSC 172 - Data Structure and Algorithms</Typography>
-            </Card>
-            
-            <Paper elevation={6} sx={{display: "flex", flexDirection: "row", justifyContent: "space-around", padding: "20px"}}>
-              <Card xs={{alignItems: "center", textAlign: "center"}} elevation={6}>
+            <Typography variant="h5" color="secondary" sx={{textAlign: "center"}}>CSC 172 - Data Structure and Algorithms</Typography>
+            <Container sx={{display: "flex", flexDirection: "row", justifyContent: "space-around", padding: "30px"}}>
+              <Card sx={{alignItems: "center", textAlign: "center", padding: "15px"}} elevation={6}>
                 Class Attendace
                 <br/>
                 <Typography variant="h4" color="secondary" sx={{textAlign: "center"}}>32 / 45</Typography>
               </Card>
-              <Card xs={{alignItems: "center", textAlign: "center"}} elevation={6}>
+              <Card sx={{alignItems: "center", textAlign: "center", padding: "15px"}} elevation={6}>
                 Concentration Rate
                 <br/>
-                <Typography variant="h4" color="secondary" sx={{textAlign: "center"}}>Medium</Typography>
+                <Typography variant="h4" color="secondary" sx={{textAlign: "center", color: "lightgreen"}}>High</Typography>
               </Card>
               <Button variant="outlined" color="error" sx={{width: "20%", "&:hover": {backgroundColor: "white", borderColor: "red", color: "red"}}}>
                 End Class
               </Button>
-            </Paper>
+            </Container>
           </Paper>
 
           <Paper sx={{ marginBottom: 2, height: "30vh" }} elevation={3}>
