@@ -8,9 +8,17 @@ import { supabase } from '../App';
 const CreateMeeting = () => {
     const [meetingID, setMeetingID] = useState("");
     const [meetingName,setMeetingName] = useState("");
-    const [professorID, setProfessorID] = useState("");
-    const [classCapacity, setClassCapacity] = useState('');
+    const [classCapacity, setClassCapacity] = useState("");
 
+    const handleMeetingID = (event) => {
+      setMeetingID(event.target.value)
+    }
+    const handleMeetingName = (event) => {
+      setMeetingName(event.target.value)
+    }
+    const handleClassCapacity = (event) => {
+      setClassCapacity(event.target.value)
+    }
     const handleGenerateMeeting = async () => {
         try {
           // Insert meeting details into Supabase table
@@ -20,7 +28,6 @@ const CreateMeeting = () => {
               {
                 meeting_id: meetingID,
                 meeting_name: meetingName,
-                professor_id: professorID,
                 class_capacity: classCapacity,
               },
             ]);
@@ -29,7 +36,7 @@ const CreateMeeting = () => {
             console.error('Error generating meeting:', error.message);
             return;
           }
-          console.log('Meeting generated successfully:', data);
+          console.log('Meeting generated successfully:');
         } catch (error) {
           console.error('Error generating meeting:', error.message);
         }
@@ -86,7 +93,7 @@ const CreateMeeting = () => {
               justifyContent: "space-around",
             }}
           >
-            <TextField required label="Name" sx={{ mr: 2 }} />
+            <TextField required label="Name"  onChange={handleMeetingName} sx={{ mr: 2 }} />
             <TextField
               required
               id="outlined-password-input"
@@ -102,7 +109,7 @@ const CreateMeeting = () => {
               justifyContent: "space-around",
             }}
           >
-            <TextField required label="Class Capacity" sx={{ mr: 2 }} />
+            <TextField required label="Class Capacity"  onChange={handleClassCapacity} sx={{ mr: 2 }} />
             <TextField
               id="date"
               label="Date"
@@ -120,13 +127,13 @@ const CreateMeeting = () => {
               justifyContent: "space-around",
             }}
           >
-            <TextField required label="Meeting ID" sx={{ mr: 2 }} />
+            <TextField required label="Meeting ID"  onChange={handleMeetingID} sx={{ mr: 2 }} />
           </Box>
         </Paper>
 
         <Link to="/teacher" style={{ textDecoration: "none" }}>
           <button class="button-64" role="button">
-            <span class="text">Generate Meeting</span>
+            <span class="text" onClick={handleGenerateMeeting}>Generate Meeting</span>
           </button>
         </Link>
       </Box>
