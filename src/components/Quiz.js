@@ -6,7 +6,7 @@ import { Typography } from "@mui/material";
 const QuizContainer = styled.div`
   position: fixed;
   bottom: 20px;
-  right: 20px;
+  right: 100px;
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -97,7 +97,7 @@ const Quiz = () => {
           timestamp: Date.now() / 1000,
         });
         const response = await fetch(
-          "https://9c4a-192-31-236-2.ngrok-free.app/create_quiz",
+          "https://21d1-192-31-236-2.ngrok-free.app/create_quiz",
           {
             method: "POST",
             body: json_data,
@@ -177,7 +177,7 @@ const Quiz = () => {
           </Typography> */}
           <div style={{ position: "relative" }}>
             <BlurBackground />
-            <div style={{ backgroundColor: "rgba(255, 255, 255, 0.8)", padding: "25px", border: "1px solid black", position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)", zIndex: "9999", color: "black", borderRadius: "10px" }}>
+            <div style={{ backgroundColor: "rgba(255, 255, 255, 0.😎", padding: "25px", border: "1px solid black", position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)", zIndex: "9999", color: "black", borderRadius: "10px" }}>
               Be Ready, counting down till the question!
             </div>
           </div>

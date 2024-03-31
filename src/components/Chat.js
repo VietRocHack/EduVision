@@ -40,6 +40,7 @@ const styleChatBot = {
 const Chat = () => {
   const [topic, setTopic] = useState("");
   const [isOpen, setIsOpen] = useState(false);
+  var bnswer = "";
 
   const toggleChatbot = () => {
     setIsOpen(!isOpen);
@@ -52,7 +53,7 @@ const Chat = () => {
           action: "get-answer",
           timestamp: Date.now() / 1000,
         });
-        const response = await fetch(" https://9c4a-192-31-236-2.ngrok-free.app/find_answer", {
+        const response = await fetch("https://21d1-192-31-236-2.ngrok-free.app/find_answer", {
           method: "POST",
           body: json_data,
         });
@@ -60,7 +61,9 @@ const Chat = () => {
           const responseData = await response.json();
           const { response: answer } = responseData;
           console.log(typeof(answer));
+          console.log(answer);
           setTopic(answer);
+          bnswer = answer
         }
       } catch (error) {
         console.log("Error:", error);
@@ -72,34 +75,26 @@ const Chat = () => {
   const info = [
     {
       id: "1",
-      message: "Do you have any questions?",
+      message: "Are you having trouble with Gaze Estimation?",
       trigger: "2",
     },
     {
       id: "2",
       options: [
-        { value: 1, label: "Hell yea", trigger: "4" },
+        { value: 1, label: "Yes", trigger: "4" },
         { value: 2, label: "Nah", trigger: "3" },
       ],
     },
     {
-      id:"4",
-      message: "What topic are you not sure about?",
-      // trigger:"5",
-    },
-    // {
-    //   id:"5",
-    // },
-    // {
-    //   id: "6",
-    //   message: () => topic,
-    //   end: true,
-    // },
-    {
       id: "3",
-      message: "Gud!",
+      message: "Good!",
       end: true,
     },
+    {
+      id: "4",
+      message: () => topic,
+      end:true,
+    }
   ];
 
   return (
@@ -108,7 +103,11 @@ const Chat = () => {
         <ChatbotIcon>💬</ChatbotIcon>
       </ChatbotContainer>
       {isOpen && <ChatBot steps={info} opened={isOpen} style={{ width: "90%", height: "90%" }} />} */}
-      <ChatBot steps={info} opened={isOpen} style={{ width: "650px", height: "100vh" }} />
+
+      {
+        topic !== "" &&
+        <ChatBot steps={info} opened={isOpen} style={{ width: "650px", height: "100vh" }} />
+      }
     </ThemeProvider>
     
   );
