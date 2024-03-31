@@ -77,17 +77,25 @@ const Chat = () => {
     {
       id: "2",
       options: [
-        { value: 1, label: "Hell yea", trigger: "3" },
-        { value: 2, label: "Nah", trigger: "4" },
+        { value: 1, label: "Hell yea", trigger: "4" },
+        { value: 2, label: "Nah", trigger: "3" },
       ],
     },
     {
-      id: "3",
+      id:"4",
+      message: "What topic are you not sure about?",
+      trigger:"5",
+    },
+    // {
+    //   id:"5",
+    // }
+    {
+      id: "6",
       message: () => topic,
       end: true,
     },
     {
-      id: "4",
+      id: "3",
       message: "Gud!",
       end: true,
     },
