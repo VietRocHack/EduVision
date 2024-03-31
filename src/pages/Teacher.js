@@ -3,6 +3,8 @@ import { Typography, Grid, Button, Stack } from "@mui/material";
 import Paper from '@mui/material/Paper';
 import Card from '@mui/material/Card';
 import backgroundImage from "../assets/banner-bg.png";
+import graph from "../assets/graphs.png";
+//import Chart from "./Chart.js";
 
 const Teacher = () => {
   return (
@@ -66,9 +68,19 @@ const Teacher = () => {
     >
       <Card sx={{height: "90vh", borderRadius: "15px", width: "40%"}}>
         <Stack direction="column" spacing={2} sx={{padding: "20px"}}>
-          <Paper sx={{ marginBottom: 2, height: "20vh" }} elevation={3}>Class Attendance</Paper>
-          <Paper sx={{ marginBottom: 2, height: "30vh" }} elevation={3}>Class Concentration</Paper>
-          <Paper sx={{ marginBottom: 2, height: "30vh" }} elevation={3}>Hard Concepts / Confusion Rate</Paper>
+          <Paper sx={{ marginBottom: 2, height: "20vh", padding: "10px", display: "flex", justifyContent: "space-around", fontFamily: 'Poppins, sans-serif', fontWeight: "500"}} elevation={3}>
+            <Card xs={{minWidth: "50%", alignItems: "center"}}>
+              32 / 45
+            </Card>
+            
+            
+          </Paper>
+          <Paper sx={{ marginBottom: 2, height: "30vh" }} elevation={3}>
+            <img src={graph} style={{ animation: "none", maxWidth: "60%" }}/>
+          </Paper>
+          <Paper sx={{ marginBottom: 2, height: "30vh" }} elevation={3}>
+            <img src={graph} style={{ animation: "none", maxWidth: "60%" }}/>
+          </Paper>
         </Stack>
       </Card>
 

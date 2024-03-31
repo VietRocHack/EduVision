@@ -22,6 +22,20 @@ const QuizIcon = styled.span`
   font-size: 24px;
 `;
 
+const Container = styled.div`
+  position: relative;
+`;
+
+const BlurBackground = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(8px);
+  z-index: 9998; /* Make sure this is below the modal */
+`;
+
 const ModalContent = styled.div`
   position: fixed;
   top: 50%;
@@ -29,10 +43,11 @@ const ModalContent = styled.div`
   transform: translate(-50%, -50%);
   width: 80%;
   max-width: 600px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.8);;
   padding: 20px;
   border-radius: 10px;
   z-index: 9999;
+  
 `;
 
 const Timer = styled.div`
@@ -160,42 +175,49 @@ const Quiz = () => {
         </>
       ) : (
         isOpen && (
-          <ModalContent>
-            <div className="question">
-              <div className="question-section">
-                <h2>Quiz time!</h2>
-                <div className="question-text">{quiz.question}</div>
-                {timeUp ? (
-                  <Timer>Time's up</Timer>
-                ) : (
-                  <Timer>{formatTime(timer)}</Timer>
-                )}
-                {/* {answeredCorrectly && (
-                  <div style={{ color: "green" }}>
-                    That's a correct answer!!!
+          <Container>
+            <BlurBackground />
+            <ModalContent>
+            
+                <div className="question">
+                  <div style={{marginLeft: "20px"}}>
+                  <div className="question-section">       
+                    <h2 style={{ marginBottom: "10px" }}>Quiz time!</h2>
+                    <div className="question-text">{quiz.question}</div>
+    
+                    {/* {answeredCorrectly && (
+                      <div style={{ color: "green" }}>
+                        That's a correct answer!!!
+                      </div>
+                    )} */}
+                    {answeredWrong && (
+                      <div style={{ color: "red" }}>
+                        Wrong!!!
+                      </div>
+                    )}
                   </div>
-                )} */}
-                {answeredWrong && (
-                  <div style={{ color: "red" }}>
-                    Wrong!!!
+                  <div className="answer-section">
+                    {quiz.choices.map((choice, index) => (
+                      <AnswerButton
+                        key={index}
+                        onClick={() => checkAns(choice.charAt(0))}
+                        disabled={timeUp || answeredCorrectly}
+                        answeredCorrectly={answeredCorrectly}
+                        correct={choice.charAt(0) === quiz.correctAns.charAt(0)}
+                      >
+                        {choice}
+                      </AnswerButton>
+                    ))}
                   </div>
-                )}
-              </div>
-              <div className="answer-section">
-                {quiz.choices.map((choice, index) => (
-                  <AnswerButton
-                    key={index}
-                    onClick={() => checkAns(choice.charAt(0))}
-                    disabled={timeUp || answeredCorrectly}
-                    answeredCorrectly={answeredCorrectly}
-                    correct={choice.charAt(0) === quiz.correctAns.charAt(0)}
-                  >
-                    {choice}
-                  </AnswerButton>
-                ))}
-              </div>
-            </div>
-          </ModalContent>
+                  {timeUp ? (
+                    <Timer style={{ marginLeft: "290px", marginBottom: "100px" }}>Time's up</Timer>
+                  ) : (
+                    <Timer style={{ marginLeft: "290px", marginBottom: "100px" }}>{formatTime(timer)}</Timer>
+                  )}
+                  </div>
+                </div>
+            </ModalContent>
+          </Container>
         )
       )}
     </>
