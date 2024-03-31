@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Box, TextField, Paper, Typography } from '@mui/material';
+import { Box, TextField, Paper, Typography, Button } from '@mui/material';
 import { Link } from "react-router-dom";
 import backgroundImage from "../assets/banner-bg.png";
 import header from "../assets/header-img.svg";
@@ -89,17 +89,18 @@ const JoinMeeting = () => {
                     autoComplete="current-password"
                 />
             </Box>
-            <Box sx={{marginBottom: "20px", display: "flex", justifyContent:"space-around"}}>
+            <Box sx={{marginBottom: "20px", display: "flex", justifyContent: "space-around", marginRight: "20px"}}>
                 <TextField 
                     required
                     label="Meeting ID" 
                     onChange={handleMeetingIDChange}
                     sx={{ mr: 2 }}
                 />
+                <Button onClick={handleJoinMeeting} sx={{width: "35%"}} variant="outlined" color="error">Search</Button>
             </Box>  
         </Paper>
 
-        <button onClick={handleJoinMeeting}>search</button>
+        {/* <button onClick={handleJoinMeeting}>search</button> */}
         {meetingNotFound && <div style={{ color: "red" }}>Meeting not found</div>}
         {joinButton}
     </Box>
