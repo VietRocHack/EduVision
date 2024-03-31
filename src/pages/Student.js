@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Card, Box, Typography, Stack, Paper, Container, Button } from "@mui/material";
+import { Card, Stack, Paper } from "@mui/material";
 import Chat from '../components/Chat';
 import Quiz from '../components/Quiz';
 import backgroundImage from "../assets/banner-bg.png";
@@ -28,8 +28,7 @@ const Student = () => {
         </Stack>
       </Card>
 
-      <Card sx={{height: "100vh", borderRadius: "15px", width: "40%"}}>
-        <Paper elevation={3}></Paper>
+      <Card sx={{height: "100vh", borderRadius: "15px", width: "40%", backgroundColor: "lightblue", display: "flex", justifyContent: "center", alignItems: "center" }}>
         <Chat />
       </Card>
       <Quiz />

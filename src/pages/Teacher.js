@@ -4,7 +4,6 @@ import Paper from '@mui/material/Paper';
 import Card from '@mui/material/Card';
 import backgroundImage from "../assets/banner-bg.png";
 import graph from "../assets/graphs.png";
-//import Chart from "./Chart.js";
 
 const Teacher = () => {
   return (

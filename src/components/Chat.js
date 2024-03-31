@@ -6,35 +6,36 @@ import styled from "styled-components";
 // Chatbot theme
 const styleChatBot = {
   background: "#f5f8fb",
-  headerBgColor: "#EF6C00",
+  backgroundColor: "lightblue",
+  headerBgColor: "#693DB1",
   headerFontColor: "#fff",
   headerFontSize: "20px",
-  botBubbleColor: "#EF6C00",
+  botBubbleColor: "#693DB1",
   botFontColor: "#fff",
   userBubbleColor: "#fff",
   userFontColor: "#4a4a4a",
 };
 
-// Styled chatbot container
-const ChatbotContainer = styled.div`
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background-color: #ef6c00;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  z-index: 9999;
-`;
+// // Styled chatbot container
+// const ChatbotContainer = styled.div`
+//   position: fixed;
+//   bottom: 20px;
+//   right: 20px;
+//   width: 60px;
+//   height: 60px;
+//   border-radius: 50%;
+//   background-color: #ef6c00;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   cursor: pointer;
+//   z-index: 9999;
+// `;
 
-const ChatbotIcon = styled.span`
-  color: white;
-  font-size: 24px;
-`;
+// const ChatbotIcon = styled.span`
+//   color: white;
+//   font-size: 24px;
+// `;
 
 const Chat = () => {
   const [topic, setTopic] = useState("");
@@ -84,16 +85,16 @@ const Chat = () => {
     {
       id:"4",
       message: "What topic are you not sure about?",
-      trigger:"5",
+      // trigger:"5",
     },
     // {
     //   id:"5",
-    // }
-    {
-      id: "6",
-      message: () => topic,
-      end: true,
-    },
+    // },
+    // {
+    //   id: "6",
+    //   message: () => topic,
+    //   end: true,
+    // },
     {
       id: "3",
       message: "Gud!",
@@ -103,10 +104,11 @@ const Chat = () => {
 
   return (
     <ThemeProvider theme={styleChatBot}>
-      <ChatbotContainer onClick={toggleChatbot}>
+      {/* <ChatbotContainer onClick={toggleChatbot}>
         <ChatbotIcon>💬</ChatbotIcon>
       </ChatbotContainer>
-      {isOpen && <ChatBot steps={info} opened={isOpen} style={{ width: "100%", height: "100%" }} />}
+      {isOpen && <ChatBot steps={info} opened={isOpen} style={{ width: "90%", height: "90%" }} />} */}
+      <ChatBot steps={info} opened={isOpen} style={{ width: "650px", height: "100vh" }} />
     </ThemeProvider>
     
   );
