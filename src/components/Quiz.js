@@ -59,7 +59,7 @@ const Timer = styled.div`
 
 const AnswerButton = styled.button`
   background-color: ${({ answeredCorrectly, correct }) =>
-    answeredCorrectly ? (correct ? "green" : "red") : "inherit"};
+    answeredCorrectly ? (correct ? "lightgreen" : "orange") : "inherit"};
 `;
 
 const Quiz = () => {
@@ -214,7 +214,7 @@ const Quiz = () => {
                     ))}
                   </div>
                   {timeUp ? (
-                    <Timer style={{ marginLeft: "265px", marginBottom: "100px", color: "black", fontSize: "35px" }}>Time's up</Timer>
+                    <Timer style={{ marginLeft: "250px", marginBottom: "100px", color: "black", fontSize: "35px" }}>Time's up</Timer>
                   ) : (
                     <Timer style={{ marginLeft: "265px", marginBottom: "100px", color: "black", fontSize: "35px" }}>{formatTime(timer)}</Timer>
                   )}
